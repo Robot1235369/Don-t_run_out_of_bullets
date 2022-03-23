@@ -1,5 +1,7 @@
 import pygame
+import threading
 from vars import *
+from mainmenu import *
 pygame.init()
 
 font = pygame.font.Font('arial.ttf', 32)
@@ -19,27 +21,40 @@ def exit():
             running = False
 
 def load():
-    pygame.display.update()
+    modifier = 1
+    while True:
+        display.fill(BLACK)
+        if not done:
+            display.blit(loading_ball, (loading_x, pygame.display.get_surface().get_size()[1] // 2))
+            loading_x += modifier
+            if loading_x >= (pygame.display.get_surface().get_size()[0] // 2) + 100:
+                modifier *= -1
+            pygame.display.update()
+        else:
+            break
 
 def update():
     display.fill(BLACK)
     pygame.display.update()
+    done = True
 
 def main():
     global running
+    menu()
     clock = pygame.time.Clock()
+
     while running:
         clock.tick(FPS)
+        exit()
 
         if not loading:
             for event in pygame.event.get():
                 pass
-            if display.get_size() == (500, 500):
-                fullscreen()
-            else:
-                update()
+
+            update()
         else:
-            load()
+            threading.Thread(target=load).start()
+            loading = False
 
 if __name__ == "__main__":
     main()
