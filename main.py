@@ -11,6 +11,16 @@ def fullscreen():
     display_surface.blit(text, textRect)
     pygame.display.update()
 
+def exit():
+    global running
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            running = False
+
+def load():
+    pygame.display.update()
+
 def update():
     display.fill(BLACK)
     pygame.display.update()
@@ -20,14 +30,16 @@ def main():
     clock = pygame.time.Clock()
     while running:
         clock.tick(FPS)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                running = False
-        if display.get_size() == (500, 500):
-            fullscreen()
+
+        if not loading:
+            for event in pygame.event.get():
+                pass
+            if display.get_size() == (500, 500):
+                fullscreen()
+            else:
+                update()
         else:
-            update()
+            load()
 
 if __name__ == "__main__":
     main()
