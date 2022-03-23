@@ -4,10 +4,6 @@ from vars import *
 from mainmenu import *
 pygame.init()
 
-font = pygame.font.Font('arial.ttf', 32)
-text = font.render('Please Fullscreen this Window to Play', True, green, blue)
-textRect = text.get_rect()
-
 def fullscreen():
     display.fill(BLACK)
     display_surface.blit(text, textRect)
