@@ -22,12 +22,12 @@ def main():
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                pygame.quit()
                 running = False
         if display.get_size() == (500, 500):
             fullscreen()
         else:
             update()
-    pygame.quit()
 
 if __name__ == "__main__":
     main()
