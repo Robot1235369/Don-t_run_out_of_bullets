@@ -11,7 +11,7 @@ def update():
     pygame.display.update()
 
 def main():
-    clock = pygame.CLOCK()
+    clock = pygame.time.CLOCK()
     while running:
         clock.tick(FPS)
         for event in pygame.events.get():
