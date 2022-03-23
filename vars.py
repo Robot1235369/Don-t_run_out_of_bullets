@@ -18,6 +18,6 @@ BLUE = (0, 0, 255)
 
 # loading screen
 loading_ball = pygame.image.load("images/Loading_Ball.png")
-loading_x = (pygame.display.get_surface().get_size()[0] // 2) - 100
+loading_x = (display.get_size()[0] // 2) - 100
 loading = True
 done = False

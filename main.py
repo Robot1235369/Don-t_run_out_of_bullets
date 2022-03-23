@@ -25,9 +25,9 @@ def load():
     while True:
         display.fill(BLACK)
         if not done:
-            display.blit(loading_ball, (loading_x, pygame.display.get_surface().get_size()[1] // 2))
+            display.blit(loading_ball, (loading_x, display.get_size()[1] // 2))
             loading_x += modifier
-            if loading_x >= (pygame.display.get_surface().get_size()[0] // 2) + 100:
+            if loading_x >= (display.get_size()[0] // 2) + 100:
                 modifier *= -1
             pygame.display.update()
         else:

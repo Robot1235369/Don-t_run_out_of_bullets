@@ -1,6 +1,7 @@
 import pygame
 import threading
 import sys
+from vars import *
 from main import load
 
 def exit():
