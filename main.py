@@ -11,13 +11,14 @@ def update():
     pygame.display.update()
 
 def main():
+    global running
     clock = pygame.time.Clock()
     while running:
         clock.tick(FPS)
-        for event in pygame.events.get():
-            if event == pygame.QUIT():
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
                 running = False
-        if display.get_size() == (500 ,500):
+        if display.get_size() == (500, 500):
             fullscreen()
         else:
             update()
