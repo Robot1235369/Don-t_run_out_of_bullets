@@ -2,7 +2,7 @@ import pygame
 from vars import *
 pygame.init()
 
-font = pygame.font.Font('freesansbold.ttf', 32)
+font = pygame.font.Font('arial.ttf', 32)
 text = font.render('Please Fullscreen this Window to Play', True, green, blue)
 textRect = text.get_rect()
 
