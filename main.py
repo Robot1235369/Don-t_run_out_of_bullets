@@ -2,8 +2,13 @@ import pygame
 from vars import *
 pygame.init()
 
-def fulscreen():
+font = pygame.font.Font('freesansbold.ttf', 32)
+text = font.render('Please Fullscreen this Window to Play', True, green, blue)
+textRect = text.get_rect()
+
+def fullscreen():
     display.fill(BLACK)
+    display_surface.blit(text, textRect)
     pygame.display.update()
 
 def update():
@@ -17,15 +22,11 @@ def main():
         for event in pygame.events.get():
             if event == pygame.QUIT():
                 running = False
-        if display.get_size() == (500 ,500):
-            fulscreen()
+        if display.get_size() == (500, 500):
+            fullscreen()
         else:
             update()
     pygame.quit()
 
 if __name__ == "__main__":
     main()
-
-# hello, I just was bored, so I wrote the starting code for the game
-# this will just create a black window that is resizable, and that will close
-# P.S. the vars.py file is for creating variables, so that the program doesn't get messy
