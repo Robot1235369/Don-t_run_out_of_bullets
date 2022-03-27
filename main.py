@@ -5,9 +5,15 @@ from mainmenu import *
 pygame.init()
 
 def fullscreen():
-    display.fill(BLACK)
+    #display.fill(BLACK)
     display_surface.blit(text, textRect)
     pygame.display.update()
+
+def AddCharacter(X,Y):
+    game_display.blit(character_1, (X,Y))
+
+    y = (WIDTH * 0.95)
+    x = (HEIGHT * 0.5)
 
 def exit():
     global running
@@ -15,11 +21,14 @@ def exit():
         if event.type == pygame.QUIT:
             pygame.quit()
             running = False
+        game_display.blit(floor, (0,0))
+        Loading_Ball(X,Y)
+
 
 def load():
     modifier = 1
     while True:
-        display.fill(BLACK)
+        #display.fill(BLACK)
         if not done:
             display.blit(loading_ball, (loading_x, display.get_size()[1] // 2))
             loading_x += modifier
@@ -30,7 +39,7 @@ def load():
             break
 
 def update():
-    display.fill(BLACK)
+    #display.fill(BLACK)
     pygame.display.update()
     done = True
 
@@ -53,4 +62,7 @@ def main():
             loading = False
 
 if __name__ == "__main__":
+
+
     main()
+    #this is a bit confusing could you posibly explain sometime
