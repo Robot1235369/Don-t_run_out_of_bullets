@@ -2,7 +2,7 @@ import pygame
 import threading
 import sys
 from vars import *
-from main import load
+from main import *
 
 def exit():
     global running_menu
@@ -32,6 +32,6 @@ def menu():
         else:
             threading.Thread(target=load).start()
             loading = False
-    
+
     if left:
         sys.exit()
