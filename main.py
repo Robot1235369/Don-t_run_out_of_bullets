@@ -1,11 +1,10 @@
 import pygame
 import threading
 from vars import *
-from mainmenu import *
 pygame.init()
 
 def AddCharacter(X,Y):
-    game_display.blit(character_1, (X,Y))
+    pygame.display.blit(character_1, (X,Y))
 
     y = (WIDTH * 0.95)
     x = (HEIGHT * 0.5)
@@ -16,7 +15,7 @@ def exit():
         if event.type == pygame.QUIT:
             pygame.quit()
             running = False
-        game_display.blit(floor, (0,0))
+        pygame.display.blit(floor, (0,0))
         Loading_Ball(X,Y)
 
 
@@ -40,7 +39,6 @@ def update():
 
 def main():
     global running
-    menu()
     clock = pygame.time.Clock()
 
     while running:
