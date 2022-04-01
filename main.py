@@ -4,11 +4,6 @@ from vars import *
 from mainmenu import *
 pygame.init()
 
-def fullscreen():
-    #display.fill(BLACK)
-    display_surface.blit(text, textRect)
-    pygame.display.update()
-
 def AddCharacter(X,Y):
     game_display.blit(character_1, (X,Y))
 
@@ -62,7 +57,5 @@ def main():
             loading = False
 
 if __name__ == "__main__":
-
-
     main()
     #this is a bit confusing could you posibly explain sometime
